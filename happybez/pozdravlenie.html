@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поздравление</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 420px;
+            width: 100vw;
+            margin: 40px auto 0 auto;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px #fcb69f88;
+            background: #fff8;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            animation: fadein 1.2s;
+        }
+        .active {
+            display: block;
+        }
+        @keyframes fadein {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .slideshow-controls {
+            position: absolute;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        .slideshow-btn {
+            background: rgba(255, 152, 0, 0.7);
+            border: none;
+            color: #fff;
+            font-size: 2em;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            margin: 0 8px;
+            cursor: pointer;
+            pointer-events: all;
+            transition: background 0.2s;
+        }
+        .slideshow-btn:hover {
+            background: #ff9800;
+        }
+        .dots {
+            text-align: center;
+            margin: 18px 0 0 0;
+        }
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 4px;
+            background: #ffb347;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .dot.active {
+            opacity: 1;
+            background: #ff9800;
+        }
+        .congrats-text {
+            margin: 32px 0 0 0;
+            font-size: 2em;
+            color: #d84315;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 0 2px 10px #fff;
+            animation: fadeInUp 2s ease-in-out;
+        }
+        .heart {
+            text-align: center;
+            font-size: 3em;
+            animation: pulse 1.5s infinite;
+            color: #e91e63;
+            margin-bottom: 30px;
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        @media (max-width: 500px) {
+            .slideshow-container { max-width: 100vw; }
+            .slide { height: 220px; }
+            .congrats-text { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="congrats-text">С Днём Рождения, любимая!</div>
+    <div class="heart">❤️</div>
+    <audio id="bg-audio" src="deti-online.com_-_happy-birthday-to-you.mp3" preload="auto"></audio>
+    <div class="slideshow-container">
+        <img class="slide active" src="images/13e75067-d328-4ad8-b3a1-139e31f58219.jpg" alt="Фото 1">
+        <img class="slide" src="images/42a0d722-9197-43f6-96c3-b13f3e8c6b98.jpg" alt="Фото 2">
+        <img class="slide" src="images/49880cff-f086-461a-9eeb-e57183050c86.jpg" alt="Фото 3">
+        <img class="slide" src="images/51055ac3-3f73-4592-960e-682ca465f1f2.jpg" alt="Фото 4">
+        <img class="slide" src="images/64e14514-c3a3-43d0-a685-50923b98e39a.jpg" alt="Фото 5">
+        <img class="slide" src="images/6848b0e3-cda2-404a-9ed4-b960d2dbf360.jpg" alt="Фото 6">
+        <img class="slide" src="images/70bee5ff-700c-4829-89c0-8c89418b87ae.jpg" alt="Фото 7">
+        <img class="slide" src="images/7166fe08-7bdf-42b1-856e-57de50379c73.jpg" alt="Фото 8">
+        <img class="slide" src="images/88602cbc-9bd6-453b-b58a-7e4af94e264d.jpg" alt="Фото 9">
+        <img class="slide" src="images/a394e6ec-86f3-4641-bd4d-ef854b9bd866.jpg" alt="Фото 10">
+        <img class="slide" src="images/b9befb4f-5eb3-40bf-9159-ef20540f57da.jpg" alt="Фото 11">
+        <img class="slide" src="images/dfc85a5e-a94e-40d9-aa7f-cf9d03aa8043.jpg" alt="Фото 12">
+        <img class="slide" src="images/e701e7df-1c2e-44be-a40c-61fd30df666a.jpg" alt="Фото 13">
+        <img class="slide" src="images/e78ddeb9-d195-4fac-b7e1-0a699751300c.jpg" alt="Фото 14">
+        <img class="slide" src="images/e7c5516d-9ab2-4e34-8b65-962669f2bfc0.jpg" alt="Фото 15">
+        <div class="slideshow-controls">
+            <button class="slideshow-btn" id="prevBtn">&#10094;</button>
+            <button class="slideshow-btn" id="nextBtn">&#10095;</button>
+        </div>
+    </div>
+    <div class="dots" id="dots"></div>
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.getElementById('dots');
+        let currentSlide = 0;
+        let slideInterval;
+
+        // Создание точек
+        slides.forEach((_, idx) => {
+            const dot = document.createElement('span');
+            dot.className = 'dot' + (idx === 0 ? ' active' : '');
+            dot.addEventListener('click', () => showSlide(idx));
+            dotsContainer.appendChild(dot);
+        });
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        document.getElementById('nextBtn').onclick = nextSlide;
+        document.getElementById('prevBtn').onclick = prevSlide;
+
+        // Автоматическое слайдшоу на 1 минуту и автозапуск музыки
+        let autoSlideTimeout;
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 4000); // 15 слайдов * 4 сек = 60 сек
+            autoSlideTimeout = setTimeout(() => {
+                clearInterval(slideInterval);
+                document.getElementById('bg-audio').pause();
+                // Эффект "темноты"
+                const blackout = document.createElement('div');
+                blackout.style.position = 'fixed';
+                blackout.style.left = 0;
+                blackout.style.top = 0;
+                blackout.style.width = '100vw';
+                blackout.style.height = '100vh';
+                blackout.style.background = '#000';
+                blackout.style.opacity = '0';
+                blackout.style.transition = 'opacity 1.2s';
+                blackout.style.zIndex = 9999;
+                document.body.appendChild(blackout);
+                setTimeout(() => {
+                    blackout.style.opacity = '1';
+                }, 50);
+                setTimeout(() => {
+                    window.location.href = 'cart.html';
+                }, 5000);
+            }, slides.length * 4000);
+        }
+        // Отключаем ручное управление и паузы
+        document.getElementById('nextBtn').style.display = 'none';
+        document.getElementById('prevBtn').style.display = 'none';
+        // Автовоспроизведение музыки при открытии страницы
+        window.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('bg-audio');
+            // Попытка автозапуска (может потребоваться пользовательское взаимодействие в некоторых браузерах)
+            const playAudio = () => {
+                audio.play().catch(() => {});
+            };
+            playAudio();
+            // На всякий случай — запуск при первом клике
+            document.body.addEventListener('click', playAudio, { once: true });
+            startAutoSlide();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>С Днём Рождения!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffe259 0%, #ffa751 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        .header {
+            background: linear-gradient(90deg, #ff9800 0%, #ffb347 100%);
+            color: #fff;
+            padding: 40px 0 24px 0;
+            text-align: center;
+            box-shadow: 0 4px 16px #ffa75155;
+        }
+        .header-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 3px 14px #b86b00;
+        }
+        .header-sub {
+            font-size: 1.2em;
+            margin-top: 12px;
+            color: #fff8e1;
+        }
+        .banner {
+            max-width: 600px;
+            margin: 30px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px #ff980055;
+        }
+        .banner img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            min-height: 280px;
+            max-height: 400px;
+        }
+
+        /* Анимация шариков */
+        .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 60px;
+            background-color: red;
+            border-radius: 50% 50% 45% 45%;
+            animation: rise 8s linear infinite;
+            opacity: 0.8;
+        }
+        @keyframes rise {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Текст поздравления */
+        .birthday-text {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 40px 0 10px 0;
+            color: #d84315;
+            text-shadow: 0 2px 10px #fff;
+            animation: fadeInUp 2s ease-in-out;
+        }
+        .heart {
+            text-align: center;
+            font-size: 3em;
+            animation: pulse 1.5s infinite;
+            color: #e91e63;
+            margin-bottom: 30px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        /* Кнопка-ссылка */
+        .view-btn {
+            display: block;
+            margin: 40px auto 60px auto;
+            padding: 16px 32px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            color: white;
+            background: linear-gradient(90deg, #ff6f61, #ff4081);
+            border: none;
+            border-radius: 32px;
+            box-shadow: 0 4px 16px #ff408155;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: fit-content;
+        }
+        .view-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px #ff408180;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-title">С Днём Рождения!</div>
+        <div class="header-sub">Сегодня твой день — пусть он будет ярким и незабываемым!</div>
+    </div>
+
+    <div class="banner">
+        <img src="images/1.jpg" alt="Праздничный баннер">
+    </div>
+
+    <div class="birthday-text">С Днём Рождения, любимая!</div>
+    <div class="heart">❤️</div>
+
+    <a href="pozdravlenie.html" target="_blank" class="view-btn">Просмотреть поздравление</a>
+
+    <!-- Шарики -->
+    <script>
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * window.innerWidth + 'px';
+            balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+            balloon.style.animationDuration = (6 + Math.random() * 4) + 's';
+            document.body.appendChild(balloon);
+
+            setTimeout(() => {
+                balloon.remove();
+            }, 10000);
+        }
+
+        setInterval(createBalloon, 500);
+    </script>
+</body>
+</html>

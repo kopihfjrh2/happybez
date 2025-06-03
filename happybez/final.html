@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Финал</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #f7971e 0%, #ffd200 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .final-container {
+            background: rgba(255,255,255,0.95);
+            border-radius: 32px;
+            box-shadow: 0 8px 40px #ff980055;
+            padding: 40px 24px 32px 24px;
+            max-width: 420px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .final-title {
+            font-size: 2.3em;
+            font-weight: bold;
+            color: #ff9800;
+            margin-bottom: 18px;
+            text-shadow: 0 2px 16px #ffd20099;
+        }
+        .final-heart {
+            font-size: 3.5em;
+            color: #e91e63;
+            animation: pulse 1.2s infinite;
+            margin-bottom: 18px;
+        }
+        .final-text {
+            font-size: 1.3em;
+            color: #b86b00;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        .firework {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff9800;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 1;
+            animation: firework 1.2s linear forwards;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        @keyframes firework {
+            0% { opacity: 1; transform: scale(1) translateY(0); }
+            80% { opacity: 1; }
+            100% { opacity: 0; transform: scale(0.5) translateY(-120px); }
+        }
+        .final-btn {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 16px 38px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(90deg, #ff6f61, #ff9800 80%);
+            border: none;
+            border-radius: 32px;
+            box-shadow: 0 4px 24px #ff980080;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+            cursor: pointer;
+        }
+        .final-btn:hover {
+            background: linear-gradient(90deg, #ff9800, #ff6f61 80%);
+            transform: scale(1.06);
+            box-shadow: 0 8px 32px #ff980099;
+        }
+        @media (max-width: 500px) {
+            .final-container { padding: 18px 4vw 18px 4vw; }
+            .final-title { font-size: 1.3em; }
+            .final-text { font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="final-container">
+        <div class="final-title">Ты — настоящее чудо! 🎉</div>
+        <div class="final-heart">❤️</div>
+        <div class="final-text">
+            Спасибо, что ты есть!<br>
+            Пусть впереди будет только счастье, любовь и море вдохновения.<br>
+            <b>С 20-летием!</b>
+        </div>
+        <a href="index.html" class="final-btn">Вернуться на главную</a>
+    </div>
+    <script>
+        // Фейерверки
+        function launchFirework() {
+            const colors = ['#ff9800', '#ffd200', '#e91e63', '#ff4081', '#fff176', '#ff6f61'];
+            const count = 18 + Math.floor(Math.random() * 8);
+            for (let i = 0; i < count; i++) {
+                const fw = document.createElement('div');
+                fw.className = 'firework';
+                fw.style.left = (window.innerWidth/2 + Math.cos(2 * Math.PI * i / count) * 120 + (Math.random()-0.5)*30) + 'px';
+                fw.style.top = (window.innerHeight/2 + Math.sin(2 * Math.PI * i / count) * 30 + (Math.random()-0.5)*30) + 'px';
+                fw.style.background = colors[Math.floor(Math.random()*colors.length)];
+                fw.style.animationDuration = (0.9 + Math.random()*0.7) + 's';
+                document.body.appendChild(fw);
+                setTimeout(() => fw.remove(), 1400);
+            }
+        }
+        setTimeout(launchFirework, 400);
+        setTimeout(launchFirework, 1800);
+        setTimeout(launchFirework, 3200);
+        setTimeout(launchFirework, 5000);
+    </script>
+</body>
+</html>

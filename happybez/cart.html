@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поздравляю с 20-летием!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(90deg, #ff9800 0%, #ffb347 100%);
+            color: #fff;
+            padding: 38px 0 22px 0;
+            text-align: center;
+            box-shadow: 0 4px 16px #ffa75155;
+            font-size: 2.2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 3px 14px #b86b00;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.3em;
+            color: #d84315;
+            margin: 28px 0 18px 0;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 12px 40px 12px;
+        }
+        .photo-frame {
+            background: transparent;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px #ff980055;
+            border: 3px solid #ffb347;
+            aspect-ratio: 1/1;
+            perspective: 900px;
+            cursor: pointer;
+            transition: box-shadow 0.18s, border-color 0.18s;
+        }
+        .photo-frame:hover {
+            box-shadow: 0 6px 24px #ff980099;
+            border-color: #ff9800;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(.4,2,.6,1);
+            transform-style: preserve-3d;
+        }
+        .photo-frame.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flip-card-front {
+            background: #fff;
+        }
+        .flip-card-back {
+            background: linear-gradient(120deg, #ffe0b2 0%, #ffb347 100%);
+            color: #b86b00;
+            font-size: 1.1em;
+            font-weight: 500;
+            text-align: center;
+            padding: 18px;
+            transform: rotateY(180deg);
+            box-shadow: 0 2px 12px #ff980055;
+        }
+        .photo-placeholder {
+            width: 80%;
+            height: 80%;
+            background: repeating-linear-gradient(135deg, #ffe0b2 0 10px, #fff3e0 10px 20px);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff9800;
+            font-size: 2.2em;
+            font-weight: bold;
+            opacity: 0.5;
+        }
+        @media (max-width: 700px) {
+            .photos-grid { max-width: 100vw; }
+        }
+        @media (max-width: 500px) {
+            .header { font-size: 1.2em; padding: 22px 0 12px 0; }
+            .subtitle { font-size: 1em; }
+            .photos-grid { gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Поздравляю с 20-летием!</div>
+    <div class="subtitle">тыкни меня!</div>
+    <div class="photos-grid">
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="0d27ee06-cc83-40fa-a4e8-409b3aecce45.jpg" alt="Фото 1" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-1">С днём рождения! Пусть каждый день приносит радость, вдохновение и светлые моменты. Желаю здоровья, удачи и исполнения самых заветных желаний!</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="326d964b-a53d-46cc-a778-ff1cd8d612fd.jpg" alt="Фото 2" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-2">Поздравляю с праздником! Пусть жизнь будет насыщенной, как картина художника, яркой, как летний день, и доброй, как улыбка близкого человека.</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="5493c88c-9478-4496-9cdb-f1657dd12d60.jpg" alt="Фото 3" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-3">С днём рождения! Желаю тебе большого человеческого счастья, верных друзей рядом и пусть в жизни всё складывается так, как ты мечтаешь!</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="6924bc2a-3c92-4f80-8955-d54dd9416b46.jpg" alt="Фото 4" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-4">Пусть этот день рождения будет началом чего-то нового и чудесного. Желаю тепла, уюта в душе и вдохновения на великие дела!</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="6ece99a5-dc3d-4316-b882-50da57338bd4.jpg" alt="Фото 5" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-5">Поздравляю! Пусть будет побольше хороших новостей, настоящих чувств и людей, которые будут рядом в любых ситуациях. Счастья тебе и любви!</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="90236353-db8a-4183-96d1-5ee96d983cea.jpg" alt="Фото 6" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-6">С днём рождения! Желаю радоваться каждому дню, не бояться мечтать и всегда верить в лучшее. Пусть в жизни будет место чудесам!</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="a3a812eb-68a8-4931-81bb-be263c5389ab.jpg" alt="Фото 7" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-7">Пусть твой день рождения будет наполнен искренними поздравлениями, улыбками и заботой. Желаю лёгкости на сердце и блеска в глазах!</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="b21014b5-8db0-45e6-ab08-f3cbc796e300.jpg" alt="Фото 8" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-8">С праздником! Пусть все твои усилия приносят результат, а каждый новый день открывает новые возможности. Будь счастлив(а)!</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="cec8667e-069b-43ae-8c0a-2eb6fe615cee.jpg" alt="Фото 9" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-9">С днём рождения! Пусть дом будет полон уюта, сердце — любви, а жизнь — ярких событий и счастливых поворотов судьбы!</div>
+            </div>
+        </div>
+        <div class="photo-frame">
+            <div class="flip-card-inner">
+                <div class="flip-card-front"><img src="ff61fb39-3096-4443-867f-7cf0cc3d4257.jpg" alt="Фото 10" style="width:100%;height:100%;object-fit:cover;"></div>
+                <div class="flip-card-back" id="back-10">Поздравляю! Желаю тебе мира в душе, энергии для новых свершений и настоящего, глубокого счастья каждый день.</div>
+            </div>
+        </div>
+    </div>
+    <a href="final.html" class="continue-btn">Продолжить</a>
+    <script>
+        // Переворот карточки по клику
+        document.querySelectorAll('.photo-frame').forEach(frame => {
+            frame.addEventListener('click', function() {
+                this.classList.toggle('flipped');
+            });
+        });
+    </script>
+    <style>
+        .continue-btn {
+            display: block;
+            margin: 32px auto 36px auto;
+            padding: 18px 48px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(90deg, #ff6f61, #ff9800 80%);
+            border: none;
+            border-radius: 32px;
+            box-shadow: 0 4px 24px #ff980080;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+            cursor: pointer;
+        }
+        .continue-btn:hover {
+            background: linear-gradient(90deg, #ff9800, #ff6f61 80%);
+            transform: scale(1.06);
+            box-shadow: 0 8px 32px #ff980099;
+        }
+    </style>
+</body>
+</html>
